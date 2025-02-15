@@ -36,8 +36,6 @@ const ExampleComponent = () => {
 
   return <button onClick={handleClick}>Click for Haptic</button>;
 };
-
-export default ExampleComponent;
 ```
 
 ## How It Works
