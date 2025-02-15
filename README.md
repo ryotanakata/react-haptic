@@ -1,8 +1,8 @@
 # react-haptic
 
-**Lightweight** | **Cross-Platform** | **iOS-Like Haptics**
-
 ![haptic image](https://github.com/ryotanakata/react-haptic/raw/master/doc/assets/image.png)
+
+**Lightweight** | **Cross-Platform** | **iOS-Like Haptics**
 
 A lightweight React Hook that _mimics_ iOS-style haptic feedback. On devices supporting the [Vibrate API](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/vibrate), it directly triggers vibration. On iOS devices—where `navigator.vibrate` is generally unavailable—it leverages a hidden switch trick to produce **Taptic-like** feedback, _similar_ to native iOS haptic interactions.
 
