@@ -1,0 +1,77 @@
+{
+  "name": "react-haptic",
+  "version": "1.0.0",
+  "description": "React hooks for haptic feedback",
+  "type": "module",
+  "exports": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsup src/index.ts --format esm --dts",
+    "dev": "tsup src/index.ts --format esm --dts --watch",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "lint": "eslint src --ext .ts",
+    "lint:fix": "eslint src --ext .ts --fix",
+    "prepublishOnly": "npm run lint && npm run test && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ryotanakata/react-haptic.git"
+  },
+  "keywords": [
+    "iOS",
+    "Haptic",
+    "Haptics",
+    "Taptic",
+    "Haptic Feedback",
+    "iOS Haptic",
+    "Touch Feedback",
+    "React Hook",
+    "React Hooks",
+    "Vibrate API",
+    "Vibration",
+    "Cross-Platform",
+    "Mobile",
+    "iOS Safari",
+    "Taptic Engine",
+    "Touch Interaction",
+    "User Feedback",
+    "Browser Compatibility",
+    "Device Feedback",
+    "UI/UX"
+  ],
+  "author": "ryotanakata",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ryotanakata/react-haptic/issues"
+  },
+  "homepage": "https://github.com/ryotanakata/react-haptic#readme",
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "peerDependencies": {
+    "react": ">=18.0.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.13",
+    "@types/react": "^19.0.8",
+    "@typescript-eslint/eslint-plugin": "^5.62.0",
+    "@typescript-eslint/parser": "^5.62.0",
+    "eslint": "^8.57.1",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "prettier": "^3.3.3",
+    "ts-jest": "^29.2.5",
+    "ts-node": "^10.9.2",
+    "tsup": "^7.2.0",
+    "typescript": "^5.1.6",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.2.0"
+  }
+}

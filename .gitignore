@@ -1,0 +1,22 @@
+# Node modules
+node_modules/
+
+# Build files
+dist/
+
+# Logs
+*.log
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Editor directories and settings
+.vscode/
+.idea/
+
+# Environment variables
+.env
+.env.local
+
+# MacOS
+.DS_Store

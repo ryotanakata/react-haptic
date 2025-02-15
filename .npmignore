@@ -1,0 +1,11 @@
+# Exclude source code and test files
+src/
+index.test.ts
+
+# Exclude configuration and documentation files
+.eslintrc.json
+jest.config.ts
+tsconfig.json
+
+# Exclude unnecessary files
+.gitignore
