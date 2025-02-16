@@ -27,7 +27,7 @@ pnpm add react-haptic
 import React from "react";
 import { useHaptic } from "react-haptic";
 
-const ExampleComponent = () => {
+const Component = () => {
   const { vibrate } = useHaptic();
 
   const handleClick = () => {
