@@ -35,6 +35,7 @@ type UseHaptic = {
 const useHaptic = ({
   hapticDuration = 100,
 }: UseHapticOptions = {}): UseHaptic => {
+  const isBrowser = typeof window !== "undefined";
   const labelRef = useRef<HTMLLabelElement | null>(null);
 
   /**
@@ -43,7 +44,7 @@ const useHaptic = ({
    * @returns {boolean} `true` if the device is iOS/iPadOS; otherwise, `false`.
    */
   const checkIosDevice = (): boolean => {
-    if (typeof window === "undefined") return false;
+    if (!isBrowser) return false;
 
     const ua = navigator.userAgent;
     const isIphone = /iPhone|iPod/.test(ua);
@@ -75,9 +76,12 @@ const useHaptic = ({
     return { label };
   };
 
-  const canVibrate = !checkIosDevice() && Boolean(navigator?.vibrate);
+  const canVibrate =
+    isBrowser && !checkIosDevice() && Boolean(navigator?.vibrate);
 
   useEffect(() => {
+    if (!isBrowser) return;
+
     const { label } = createHiddenSwitch();
 
     document.body.appendChild(label);
@@ -88,7 +92,7 @@ const useHaptic = ({
         document.body.removeChild(label);
       }
     };
-  }, []);
+  }, [isBrowser]);
 
   /**
    * Triggers haptic feedback. If `navigator.vibrate` is available,
@@ -99,6 +103,8 @@ const useHaptic = ({
    * vibrate();
    */
   const vibrate = useCallback(() => {
+    if (!isBrowser) return;
+
     if (canVibrate) {
       navigator.vibrate(hapticDuration);
     } else {
