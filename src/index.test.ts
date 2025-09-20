@@ -156,7 +156,7 @@ describe("useHaptic hook", () => {
       const mod = await import("./index");
       expect(mod.useHaptic).toBeDefined();
       success = true;
-    } catch (error) {
+    } catch {
       success = false;
     }
 
