@@ -65,12 +65,21 @@ const useHaptic = ({
     const label = document.createElement("label");
     const input = document.createElement("input");
 
-    label.style.opacity = "0";
-    label.style.pointerEvents = "none";
-    label.style.position = "absolute";
-    label.style.left = "-9999px";
+    label.style.position = "fixed";
+    label.style.bottom = "0";
+    label.style.right = "0";
+    label.style.width = "1px";
+    label.style.height = "1px";
+    label.style.overflow = "hidden";
+    label.style.clip = "rect(0, 0, 0, 0)";
+    label.style.border = "0";
+    label.style.margin = "0";
+    label.style.padding = "0";
     input.type = "checkbox";
+    input.style.width = "1px";
+    input.style.height = "1px";
     input.setAttribute("switch", "");
+
     label.appendChild(input);
 
     return { label };
@@ -108,9 +117,19 @@ const useHaptic = ({
     if (canVibrate) {
       navigator.vibrate(hapticDuration);
     } else {
-      labelRef.current?.click();
+      const label = labelRef.current;
+
+      if (label) {
+        const input = label.querySelector("input");
+
+        if (input) {
+          input.checked = false;
+        }
+
+        label.click();
+      }
     }
-  }, [canVibrate, hapticDuration]);
+  }, [canVibrate, hapticDuration, isBrowser]);
 
   return { vibrate };
 };
